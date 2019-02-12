@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import web3 from './services/web3'
 import lenderApi from './services/lenderApi'
 
+import Admin from './containers/Admin'
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -65,7 +67,7 @@ class App extends Component {
     return (
       <div>
         <h2>Block Lender</h2>
-        <p>This contract is managed by {this.state.lender}.</p>
+        <Admin />
         <p>Customer count {this.state.customersCount}.</p>
         <p>
           Customers

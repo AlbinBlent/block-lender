@@ -67,4 +67,4 @@ class LenderApi implements ILenderApi {
   }
 }
 
-export default new LenderApi(abi, '0xdEdf3C1d20A28860329d61f2b02f78d07560e693')
+export default new LenderApi(abi, '0x80887394834EDdBAd5a82a9463CB87A652Cb126c')
