@@ -22,19 +22,19 @@ finns mer info här: https://truffleframework.com/truffle
 - Ställ dig i /dapp i detta repo
 - kör: truffle develop
 - Du borde se:
-  'Truffle Develop started at http://127.0.0.1:9545/
-  ...och sen ett gäng adresser'
+  > 'Truffle Develop started at http://127.0.0.1:9545/  
+  > ...och sen ett gäng adresser'
 - Öppna en ny terminal och ställ dig i /dapp
 - kör: truffle compile
 - Du borde se:
-  'Compiling ./contracts/Lender.sol...
-  Compiling ./contracts/Migrations.sol...
-  Writing artifacts to ./build/contracts'
+  >Compiling ./contracts/Lender.sol...  
+  >Compiling ./contracts/Migrations.sol...  
+  >Writing artifacts to ./build/contracts  
 - Kör: truffle migrate
-- Du borde längst ner se:
-  'Summary
-  =======
-  > Total deployments: 2
-  > Final cost: 0.01413116 ETH'
+- Du borde längst ner se: 
+  >Summary  
+  >Total deployments: 2  
+  >Final cost: 0.01413116 ETH  
 
-### Installera MetaMask https://metamask.io/
+### Installera MetaMask
+https://metamask.io/
