@@ -17,24 +17,35 @@ Truffle: https://truffleframework.com/
 
 finns mer info här: https://truffleframework.com/truffle
 
-- Från terminalen:
-- Ladda ner Truffle: npm install truffle -g
-- Ställ dig i /dapp i detta repo
+- från terminalen:
+- ladda ner Truffle: npm install truffle -g
+- ställ dig i block-lender/dapp
 - kör: truffle develop
-- Du borde se:
-  > 'Truffle Develop started at http://127.0.0.1:9545/  
-  > ...och sen ett gäng adresser'
-- Öppna en ny terminal och ställ dig i /dapp
+- du borde se:
+  > Truffle Develop started at http://127.0.0.1:9545/  
+  > ...och sen ett gäng adresser
+- öppna en ny terminal och ställ dig i block-lender/dapp
 - kör: truffle compile
-- Du borde se:
+- du borde se:
   >Compiling ./contracts/Lender.sol...  
   >Compiling ./contracts/Migrations.sol...  
   >Writing artifacts to ./build/contracts  
-- Kör: truffle migrate
-- Du borde längst ner se: 
+- kör: truffle migrate
+- du borde längst ner se: 
   >Summary  
   >Total deployments: 2  
   >Final cost: 0.01413116 ETH  
 
-### Installera MetaMask
-https://metamask.io/
+### Installera MetaMask, anslut till din privata block-chain och skapa ett konto
+ - gå till https://metamask.io/ lägg till metamask till din browser och klicka igenom setup:en
+ - klicka på det lilla rävhuvudet som nu borde finnas uppe till höger i din browser
+ - klicka på dropdownen där det står Main Etherium Network och sen på Custom RPC
+ - i new network skriv in http://localhost:9545 och klicka save
+ - om du inte får upp en spinner som bara står och laddar så har det gått bra
+ - gå tillbaka till terminalen där du startade din lokala blockchain med truffle develop
+ - kopiera en av de privata nycklarna
+ - klicka på den lilla räven i din browser igen
+ - klicka på den färgglada bollen i övre högra hörnet och sen på Create Account
+ - skriv in ett namn och klicka sen på import tabben
+ - klistra in din privata nyckel och klicka på export
+ - du borde nu ha bytt till ett konto med ca 100 ETH på
