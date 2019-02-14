@@ -2,7 +2,6 @@ pragma solidity >=0.4.22 <0.6.0;
 
 contract Lender {
   address public lender;
-  address payable[] public customers;
 
   enum Status {REQUESTED,APPROVED,REJECTED,PAYED}
 
@@ -38,7 +37,7 @@ contract Lender {
         age,
         Status.REQUESTED,
         reason);
-    customers.push(msg.sender);
+    numberOfLoans++;
   }
 
   function approveLoan(uint id) public {
@@ -53,15 +52,8 @@ contract Lender {
 
   function payOutLoan(uint id) public {
     require(applications[id].status == Status.APPROVED);
-    applications[id].applicantAddress.transfer(applications[id].requestedAmountToLoan);
+    require(msg.sender == lender);
+    //applications[id].applicantAddress.transfer(applications[id].requestedAmountToLoan);
     applications[id].status = Status.PAYED;
-  }
-
-  function getCustomer(uint index) public view returns(address) {
-    return customers[index];
-  }
-
-  function getCustomerCount() public view returns(uint) {
-    return customers.length;
   }
 }

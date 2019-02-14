@@ -10,9 +10,17 @@ type Application = {
 
 interface ILenderApi {
   getLender: () => Promise<string>
-  getCustomerCount: () => Promise<number>
-  getCustomer: (index: number) => Promise<string>
-  getApplication: (customerAddress: string) => Promise<Application>
+  getNumberOfLoans: () => Promise<number>
+  applyForLoan: (
+    requestedAmountToLoan: string,
+    duration: number,
+    age: number,
+    reason: string,
+  ) => Promise<void>
+  approveLoan: (id: number) => Promise<void>
+  rejectLoan: (id: number) => Promise<void>
+  payOutLoan: (id: number) => Promise<void>
+  getApplication: (id: number) => Promise<Application>
 }
 
 class LenderApi implements ILenderApi {
@@ -22,20 +30,68 @@ class LenderApi implements ILenderApi {
     this.lenderContract = new web3.eth.Contract(abi, address)
   }
 
+  approveLoan = (id: number) => {
+    return new Promise<void>((resolve, reject) => {
+      //@ts-ignore
+      web3.eth
+        .getAccounts()
+        .then((accounts: string) => {
+          this.lenderContract.methods
+            .approveLoan(id)
+            .send({ from: accounts[0] })
+            .then(() => {
+              console.log('Successfully approved loan')
+              resolve()
+            })
+        })
+        .catch((error: any) => reject(error))
+    })
+  }
+  rejectLoan = (id: number) => {
+    return new Promise<void>((resolve, reject) => {
+      //@ts-ignore
+      web3.eth
+        .getAccounts()
+        .then((accounts: string) => {
+          this.lenderContract.methods
+            .rejectLoan(id)
+            .send({ from: accounts[0] })
+            .then(() => {
+              console.log('Successfully rejected loan')
+              resolve()
+            })
+        })
+        .catch((error: any) => reject(error))
+    })
+  }
+  payOutLoan = (id: number) => {
+    return new Promise<void>((resolve, reject) => {
+      //@ts-ignore
+      web3.eth
+        .getAccounts()
+        .then((accounts: string) => {
+          this.lenderContract.methods
+            .payOutLoan(id)
+            .send({ from: accounts[0] })
+            .then(() => {
+              console.log('Successfully payed out loan')
+              resolve()
+            })
+        })
+        .catch((error: any) => reject(error))
+    })
+  }
+
   getLender = () => {
     return this.lenderContract.methods.lender().call()
   }
 
-  getCustomerCount = () => {
-    return this.lenderContract.methods.getCustomerCount().call()
+  getNumberOfLoans = () => {
+    return this.lenderContract.methods.numberOfLoans().call()
   }
 
-  getCustomer = (index: number) => {
-    return this.lenderContract.methods.getCustomer(index).call()
-  }
-
-  getApplication = (customerAddress: string) => {
-    return this.lenderContract.methods.applications(customerAddress).call()
+  getApplication = (id: number) => {
+    return this.lenderContract.methods.applications(id).call()
   }
 
   getContract = () => {
@@ -46,25 +102,27 @@ class LenderApi implements ILenderApi {
     requestedAmountToLoan: string,
     duration: number,
     age: number,
+    reason: string,
   ) => {
     /* Tror att denna promise blir fel även om den funkar (flödet blir inte sekventiellt). 
        Värt att kolla på
     */
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       //@ts-ignore
       web3.eth
         .getAccounts()
         .then((accounts: string) => {
           this.lenderContract.methods
-            .applyForLoan(requestedAmountToLoan, duration, age)
-            .send({
-              from: accounts[0],
+            .applyForLoan(requestedAmountToLoan, duration, age, reason)
+            .send({ from: accounts[0] })
+            .then(() => {
+              console.log('applied success')
+              resolve()
             })
-            .then(() => resolve())
         })
         .catch((error: any) => reject(error))
     })
   }
 }
 
-export default new LenderApi(abi, '0x80887394834EDdBAd5a82a9463CB87A652Cb126c')
+export default new LenderApi(abi, '0x252AdB131E4ca5837E8d197744417709789FCdbA')

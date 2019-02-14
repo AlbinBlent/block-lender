@@ -16,23 +16,18 @@ export const abi = [
   },
   {
     constant: true,
-    inputs: [
+    inputs: [],
+    name: 'numberOfLoans',
+    outputs: [
       {
         name: '',
         type: 'uint256',
       },
     ],
-    name: 'customers',
-    outputs: [
-      {
-        name: '',
-        type: 'address',
-      },
-    ],
     payable: false,
     stateMutability: 'view',
     type: 'function',
-    signature: '0xc0abda2a',
+    signature: '0xd022c638',
   },
   {
     constant: true,
@@ -156,40 +151,5 @@ export const abi = [
     stateMutability: 'nonpayable',
     type: 'function',
     signature: '0x40cd76df',
-  },
-  {
-    constant: true,
-    inputs: [
-      {
-        name: 'index',
-        type: 'uint256',
-      },
-    ],
-    name: 'getCustomer',
-    outputs: [
-      {
-        name: '',
-        type: 'address',
-      },
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-    signature: '0xeb876f27',
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: 'getCustomerCount',
-    outputs: [
-      {
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-    signature: '0x2027d746',
   },
 ]

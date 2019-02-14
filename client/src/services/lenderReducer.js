@@ -1,9 +1,10 @@
 import lenderApi from './lenderApi'
+
 /**
  * useReducer.js och lenderReducer.js byggde jag för att jag ville testa React hooks
  * som är nytt från version 18.6
+ * /Albin
  */
-
 export default function lenderReducer(state, action, setState) {
   switch (action.type) {
     case 'getLender':
