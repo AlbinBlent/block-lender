@@ -1,7 +1,7 @@
 {
   "name": "dapp",
   "version": "1.0.0",
-  "description": "Lender.deployed().then(function(instance){app = instance}) app.adopt(23)//call method on contract class",
+  "description": "",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
