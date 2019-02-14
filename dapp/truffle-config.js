@@ -19,7 +19,8 @@
  */
 
 const HDWalletProvider = require('truffle-hdwallet-provider')
-const infuraKey = 'e48e71316a1748f49259a9f11983b735'
+// ToDo få in infuraKey i .secret
+const infuraKey = '----'
 
 const fs = require('fs')
 const mnemonic = fs
