@@ -6,6 +6,7 @@ type Application = {
   age: number
   duration: number
   requestedAmountToLoan: string
+  reason: string
 }
 
 interface ILenderApi {
