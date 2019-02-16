@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Typography from '@material-ui/core/Typography';
 import ApplicationView from './ApplicationView'
 
 class Application extends Component {
@@ -46,7 +47,9 @@ class Application extends Component {
 
   render() {
     if (this.state.isSubmitted) {
-      return <div>Tack för din ansökan!</div>
+      return <Typography component="h2" variant="h3" align="center">
+              Tack för din ansökan!
+          </Typography>
     } else {
       return <ApplicationView
       name={this.state.name}
