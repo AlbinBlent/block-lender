@@ -9,7 +9,8 @@ class Application extends Component {
       age: "",
       amount: "",
       duration: "",
-      reason: ""
+      reason: "",
+      isSubmitted: false
     };
   }
 
@@ -39,22 +40,27 @@ class Application extends Component {
   }
 
   saveInput = () => {
+    this.setState( {isSubmitted: true} );
     console.log(this.state);
   }
 
   render() {
-    return <ApplicationView 
-    name={this.state.name} 
-    age={this.state.age}
-    amount={this.state.amount}
-    duration={this.state.duration}
-    reason={this.state.reason}
-    nameChanged={this.updateName}
-    ageChanged={this.updateAge}
-    amountChanged={this.updateAmount}
-    durationChanged={this.updateDuration}
-    reasonChanged={this.updateReason}
-    onClick={this.saveInput}/>
+    if (this.state.isSubmitted) {
+      return <div>Tack för din ansökan!</div>
+    } else {
+      return <ApplicationView 
+      name={this.state.name} 
+      age={this.state.age}
+      amount={this.state.amount}
+      duration={this.state.duration}
+      reason={this.state.reason}
+      nameChanged={this.updateName}
+      ageChanged={this.updateAge}
+      amountChanged={this.updateAmount}
+      durationChanged={this.updateDuration}
+      reasonChanged={this.updateReason}
+      onClick={this.saveInput}/>
+    }
   }
 }
 
