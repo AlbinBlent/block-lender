@@ -38,8 +38,8 @@ const ApplicationView = (props) => {
     <Paper className={classes.paper}>
       <Grid container spacing={16}>
         <Grid item xs={12}>
-          <Typography component="h1" variant="h4" align="center">
-              Ansök om ett förmånligt lån
+          <Typography component="h2" variant="h5" align="center">
+            Du kan låna pengar och behöver inte lämna någon säkerhet!
             </Typography>
         </Grid>
         <InputField valueChanged={props.nameChanged}
@@ -59,7 +59,7 @@ const ApplicationView = (props) => {
             value={props.reason}/>
         <Grid item xs={12}>
           <Button onClick={props.onClick} variant="contained" color="primary" component="span">
-            Ansök
+            Ansök om lån
           </Button>
         </Grid>
       </Grid>
