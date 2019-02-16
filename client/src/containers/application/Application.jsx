@@ -13,27 +13,27 @@ class Application extends Component {
     };
   }
 
-  updateName = event => { 
+  updateName = event => {
     this.setState( {name: event.target.value} );
     console.log(this.state);
   }
 
-  updateAge = event => { 
+  updateAge = event => {
     this.setState( {age: event.target.value} );
     console.log(this.state);
   }
 
-  updateAmount = event => { 
+  updateAmount = event => {
     this.setState( {amount: event.target.value} );
     console.log(this.state);
   }
 
-  updateDuration = event => { 
+  updateDuration = event => {
     this.setState( {duration: event.target.value} );
     console.log(this.state);
   }
 
-  updateReason = event => { 
+  updateReason = event => {
     this.setState( {reason: event.target.value} );
     console.log(this.state);
   }
@@ -43,8 +43,8 @@ class Application extends Component {
   }
 
   render() {
-    return <ApplicationView 
-    name={this.state.name} 
+    return <ApplicationView
+    name={this.state.name}
     age={this.state.age}
     amount={this.state.amount}
     duration={this.state.duration}

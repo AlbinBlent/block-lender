@@ -7,10 +7,10 @@ import './Navigation.css'
 const Navigation = () => {
     return (
         <div className="nav-items">
-            <NavLink to="/admin">Admin</NavLink>
-            <NavLink to="/application">Application</NavLink>
+            <NavLink to="/application">Ansök om lån</NavLink>
+            <NavLink to="/landingpage">Mina ansökningar</NavLink>
             <NavLink to="/info">Info</NavLink>
-            <NavLink to="/landingpage">LandingPage</NavLink>
+            <NavLink to="/admin">Admin</NavLink>
         </div>
     );
 }

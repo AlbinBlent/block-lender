@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 import Admin from './containers/admin/Admin'
@@ -31,7 +30,7 @@ const styles = theme => ({
   content: {
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
-    width: 1100,
+    maxWidth: 1100,
     marginLeft: 'auto',
     marginRight: 'auto',
   }
@@ -63,7 +62,7 @@ class App extends Component {
             </div>
             <div className={classes.content}>
               <Switch>
-                <Route exact path="/" />
+                <Route exact path="/" component={Application} />
                 <Route path="/admin" component={Admin} />
                 <Route path="/application" component={Application} />
                 <Route path="/info" component={Info} />
